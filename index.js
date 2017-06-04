@@ -25,15 +25,23 @@ var GridView = require("./site/js/GridView")
 var StompServiceModel = require("./site/js/StompServiceModel")
 
 /** 
+ * imports Observer module.
+ * create instance of Observer
+ */
+var Observer = require("./site/js/Observer");
+let observer=new Observer();
+/** 
  * creates instance of GridView module.
  */
 let gridView=document.getElementById('viewTable');
-var view = new GridView(gridView);
+var view = new GridView(gridView);//----------
 
 /** 
  * creates instance of StompServiceModel module.
  * and starts Stomp service.
  */
-let stompService=new StompServiceModel(view);
+let stompService=new StompServiceModel(view,observer);
 stompService.startService()
+
+
 

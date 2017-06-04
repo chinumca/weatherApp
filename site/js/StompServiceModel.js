@@ -13,10 +13,13 @@ class StompServiceModel
  *
  * @constructor
  * @this {StompServiceModel}
- * @param {view} this view will get updated.
+ * @param {view,observer} this view need to subscribe with observer. so observer will update the view.
  */
-        constructor(view)
+        constructor(view,observer)
         {
+            this.observer=observer;
+            this.observer.subscribe(view);
+
             this.view =view; /* assigns view to private variable */
             const URL = "ws://localhost:8011/stomp";/* constant url for data from Stomp service */
             let DEBUG = false; /* variable to set log of Stomp service*/ 
@@ -66,7 +69,7 @@ class StompServiceModel
  *  this function get calls if Stomp service successfully returns data.
  * it parses data to json format.
  * send data to updateArray method which processes data in currencyArray
- * send data to view for updating dom
+ * observer notify the subscriber i.e. view
  *
  * @this {StompServiceModel}
  * @param parameter contains returned data from Stomp service.
@@ -75,7 +78,7 @@ class StompServiceModel
         { 
             let message=JSON.parse(msg.body)
             this.updateArray(message, this.currencyArray)
-            this.view.render(this.currencyArray)
+            this.observer.notifyObserver(this.currencyArray)
         }
 
  /**

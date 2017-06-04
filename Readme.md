@@ -12,6 +12,7 @@ npm start
 
 Below are features/compatibility
 
+* output is tested on chrome and working fine.
 * Sparklines contains last 10 updates.
 * Table will get update once data is updated.
 * Recent updated currency pairs will be always at the top of the table.

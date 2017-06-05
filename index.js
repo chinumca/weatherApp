@@ -17,31 +17,32 @@ require('./site/style.css')
 /** 
  * imports GridView module.
  */
-var GridView = require("./site/js/GridView")
+let GridView = require("./site/js/view/GridView");
 
 /** 
  * imports StompServiceModel module.
  */
-var StompServiceModel = require("./site/js/StompServiceModel")
+let StompServiceModel=require("./site/js/model/StompServiceModel");
 
-/** 
- * imports Observer module.
- * create instance of Observer
- */
-var Observer = require("./site/js/Observer");
-let observer=new Observer();
-/** 
- * creates instance of GridView module.
- */
-let gridView=document.getElementById('viewTable');
-var view = new GridView(gridView);//----------
+
 
 /** 
  * creates instance of StompServiceModel module.
- * and starts Stomp service.
  */
-let stompService=new StompServiceModel(view,observer);
-stompService.startService()
+let stompService=new StompServiceModel();
 
+/** 
+ * creates instance of GridView module.
+ */
+var view = new GridView(stompService);
+
+/** 
+ *  add view to observer for stomp service.
+ */
+stompService.subscribe(view);
+/** 
+ *  start stomp service to get the data.
+ */
+stompService.startService();
 
 

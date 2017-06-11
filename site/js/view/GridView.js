@@ -18,7 +18,10 @@ class GridView
         {  
             this.stompService=stompService;
             this.container=document.getElementById('viewTable');
+			this.connectionStatus=document.getElementById('connectionStatus');
+			this.connectionStatusIcon=document.getElementById('connectionStatusIcon');
         }
+		
 /**
  * this method get called from observer
  * @this {GridView}
@@ -26,10 +29,10 @@ class GridView
         render() 
         {
             let currencyArray=this.stompService.currencyArray
-            let str=" <tr><th>Name</th><th>current best bid price</th><th>current best ask price</th><th>Best bid last changed</th><th>Best ask last changed</th><th>mid price</th></tr>";
+            let str=" <tr><th>Name</th><th>Current Best Bid Price</th><th>Current Best Ask Price</th><th>Best Bid Last Changed</th><th>Best Ask Last Changed</th><th>Mid Price</th></tr>";
             for (let i = currencyArray.length-1; i >=0 ; i--) 
             {
-                str+="<tr><td>"+currencyArray[i].name+"</td><td>"+currencyArray[i].bestBid+"</td><td>"+currencyArray[i].bestAsk+"</td><td>"+currencyArray[i].lastChangeBid+"</td><td>"+currencyArray[i].lastChangeAsk+"</td><td><span id='example-sparkline"+i+"'</span></td></tr>";
+                str+="<tr><td>"+currencyArray[i].name+"</td><td>"+(currencyArray[i].bestBid).toFixed(3)+"</td><td>"+(currencyArray[i].bestAsk).toFixed(3)+"</td><td>"+(currencyArray[i].lastChangeBid).toFixed(3)+"</td><td>"+(currencyArray[i].lastChangeAsk).toFixed(3)+"</td><td><span id='example-sparkline"+i+"'</span></td></tr>";
             }
             this.container.innerHTML=str;
             for (let i = 0; i < currencyArray.length; i++) 
@@ -39,6 +42,23 @@ class GridView
             }
             return;
         }
+		
+/**
+ * this method get called from observer. This will update server connections status.
+ * @this {GridView}
+ */
+		showConnectionStatus(b){
+			if(b)
+			{
+				this.connectionStatus.innerHTML="Connected to Server";
+				this.connectionStatusIcon.className ="serverSuccess";
+			}
+			else
+			{
+				this.connectionStatus.innerHTML="Error in Connection";
+				this.connectionStatusIcon.className ="serverError";
+			}
+		}
     }
 /**
  * @exports exports this module

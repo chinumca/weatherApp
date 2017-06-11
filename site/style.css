@@ -23,23 +23,58 @@ table {
     margin: auto;
     left: auto;
     right: auto;
-    border: 1px solid grey;
+   
 }
 
 tr:nth-child(even) {
-    background-color: #f0f0f0;
+    background-color: #c4c4c5;
+}
+tr:nth-child(odd) {
+    background-color: #e5e5ea;
 }
 
 td {
-    width: 130px;
-    text-align: right;
+    max-width: 150px;
+	min-width: 150px;
+    text-align: left;
+	padding:8px;
 }
 
 th {
     text-align: center;
-    color: white;
-    background-color: black;
+    color: #22262b;
+    background-color: #758294;
+	border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+	padding:10px;
 }
-td:nth-child(1) {
+tr{
+
+}
+td:nth-child(1),td:last-child {
     text-align: center
+}
+
+/* server connection status */
+#connectionStatus,#connectionStatusIcon{
+	position: relative;
+	float: left;
+}
+#connectionStatus{
+	margin-left:5px;
+}
+#connectionStatusIcon{
+	height:20px;
+	width:20px;
+	border-radius:50%;
+	margin-bottom: 16px;
+}
+.serverIdeal{
+	background:gray;
+}
+.serverSuccess{
+	background:green;
+}
+.serverError{
+	background:red;
 }

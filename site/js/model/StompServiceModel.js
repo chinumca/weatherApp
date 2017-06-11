@@ -53,6 +53,7 @@ class StompServiceModel extends Observer
  */
         connectError(error)
         {
+			this.notifyconnection(false);
             alert(error.headers.message);
              return;
         }
@@ -64,6 +65,7 @@ class StompServiceModel extends Observer
  */
         connectSuccess() 
         {
+			this.notifyconnection(true);
             this.client.subscribe("/fx/prices", this.successData.bind(this));
              return;
         }
@@ -82,6 +84,7 @@ class StompServiceModel extends Observer
             let message=JSON.parse(msg.body);
             this.updateArray(message, this.currencyArray);
             this.notifyObserver();
+            
         }
 
  /**
@@ -95,10 +98,13 @@ class StompServiceModel extends Observer
  */
         updateArray(obj, list) 
         {
+		
             for (let i = 0; i < list.length; i++) 
             {
-                if (list[i].name === obj.name) 
+                 if (list[i].name === obj.name) 
                 {
+				/* below code will get call if obj is present in list. this will update obj in list array.*/
+				
                     obj.sparkArr=list[i].sparkArr;
                     list.splice(i, 1 );
                     list.push(obj);
@@ -107,12 +113,33 @@ class StompServiceModel extends Observer
                     {
                         list[i].sparkArr.shift();
                     }
+					
+					/* below code will sort list array with respect to objects lastChangeAsk property.*/
+					list.sort(function(a, b) {
+						if (a.lastChangeAsk < b.lastChangeAsk)
+						return 1;
+						if (a.lastChangeAsk > b.lastChangeAsk)
+						return -1;
+						return 0;
+					});
                     return;
                 }
             }
-            obj.sparkArr=[];
+            
+			/* below code will get call if obj is not present in list. this will add obj in list array.*/
+			obj.sparkArr=[];
             obj.sparkArr.push((obj.bestBid+obj.bestAsk)/2);
             list.push(obj);
+			
+			/* below code will sort list array with respect to objects lastChangeAsk property.*/
+			list.sort(function(a, b) {
+						if (a.lastChangeAsk < b.lastChangeAsk)
+						return 1;
+						if (a.lastChangeAsk > b.lastChangeAsk)
+						return -1;
+						return 0;
+					});
+					
             return;  
         }
     }

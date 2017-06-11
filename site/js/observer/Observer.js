@@ -41,6 +41,12 @@ class Observer
                 this.observers[i].render()
             }
         }
+		notifyconnection(b){
+		for (let i=0;i<this.observers.length;i++)
+            {
+                this.observers[i].showConnectionStatus(b)
+            }
+		}
     }
     
 /**

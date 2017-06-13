@@ -1,29 +1,22 @@
 /* This css file is included by being imported in index.js */
 
+/* common CSS */
 body {
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
-    width: 100%
 }
 
-h1 {
-    font-family: medium-content-sans-serif-font,"Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Arial,sans-serif;
-    font-size: 36px;
+#view{
+	position: relative;
+}
+h4{
+	margin:5px;
 }
 
-h2 {
-    font-size: 20px;
-}
-
-.content {
-    width: 700px;
-    margin: auto;
-}
-
+/* table css */
 table {
     margin: auto;
     left: auto;
     right: auto;
-   
 }
 
 tr:nth-child(even) {
@@ -48,37 +41,45 @@ th {
     border-top-right-radius: 10px;
 	padding:10px;
 }
-tr{
 
-}
 td:nth-child(1),td:last-child {
     text-align: center
 }
 
-#view{
-	position: absolute;
-	top: 130px;
-}
 /* server connection status */
-#connectionStatus,#connectionStatusIcon{
+#connectionStatusContainer{
+    width: 200px;
+    height: 30px;
+    padding-top: 8px;
+    padding-left: 7px;
+    background: linear-gradient(to right, rgba(99, 128, 166, 0.4) , rgba(99, 128, 166, 0));
+    margin-bottom: 15px;
+    margin-top: 10px;
+    border-radius: 17px 0 0 17px;
+}
+#connectionStatusTxt,#connectionStatusIcon{
 	position: relative;
 	float: left;
 }
-#connectionStatus{
+#connectionStatusTxt{
 	margin-left:5px;
 }
 #connectionStatusIcon{
 	height:20px;
 	width:20px;
 	border-radius:50%;
-	margin-bottom: 16px;
+	
 }
 .serverIdeal{
-	background:gray;
+	background:#675e5e;
 }
 .serverSuccess{
-	background:green;
+	background:#22d222;
+	animation: blinker 1s linear infinite;
 }
 .serverError{
-	background:red;
+	background:#ce2727;
+}
+@keyframes blinker {  
+  50% { opacity: 0; }
 }

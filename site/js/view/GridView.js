@@ -18,7 +18,7 @@ class GridView
         {  
             this.stompService=stompService;
             this.container=document.getElementById('viewTable');
-			this.connectionStatus=document.getElementById('connectionStatus');
+			this.connectionStatus=document.getElementById('connectionStatusTxt');
 			this.connectionStatusIcon=document.getElementById('connectionStatusIcon');
         }
 		

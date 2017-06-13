@@ -40,6 +40,7 @@ var view = new GridView(stompService);
  *  add view to observer for stomp service.
  */
 stompService.subscribe(view);
+
 /** 
  *  start stomp service to get the data.
  */

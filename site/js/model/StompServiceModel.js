@@ -88,7 +88,7 @@ class StompServiceModel extends Observer
         }
 
  /**
- *  this is utility function process currencyArray.
+ * this is utility function process currencyArray.
  * if data is not present in currencyArray it will add it.
  * if data is present in currencyArray it will update it.
  * recent changed data is kept at end of array.
@@ -103,7 +103,8 @@ class StompServiceModel extends Observer
             {
                  if (list[i].name === obj.name) 
                 {
-				/* below code will get call if obj is present in list. this will update obj in list array.*/
+				
+				/* below code will get call if obj is present in list array. this will update obj in list array.*/
 				
                     obj.sparkArr=list[i].sparkArr;
                     list.splice(i, 1 );
@@ -114,13 +115,9 @@ class StompServiceModel extends Observer
                         list[i].sparkArr.shift();
                     }
 					
-					/* below code will sort list array with respect to objects lastChangeAsk property.*/
+					/* sortObjectsArray function is called from javascript's default sort method. This function declared in utility.js*/
 					list.sort(function(a, b) {
-						if (a.lastChangeAsk < b.lastChangeAsk)
-						return 1;
-						if (a.lastChangeAsk > b.lastChangeAsk)
-						return -1;
-						return 0;
+						return sortObjectsArray(a.lastChangeAsk , b.lastChangeAsk);
 					});
                     return;
                 }
@@ -131,13 +128,9 @@ class StompServiceModel extends Observer
             obj.sparkArr.push((obj.bestBid+obj.bestAsk)/2);
             list.push(obj);
 			
-			/* below code will sort list array with respect to objects lastChangeAsk property.*/
+			/* sortObjectsArray function is called from javascript's default sort method. This function declared in utility.js*/
 			list.sort(function(a, b) {
-						if (a.lastChangeAsk < b.lastChangeAsk)
-						return 1;
-						if (a.lastChangeAsk > b.lastChangeAsk)
-						return -1;
-						return 0;
+						return sortObjectsArray(a.lastChangeAsk , b.lastChangeAsk);
 					});
 					
             return;  

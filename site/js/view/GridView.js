@@ -28,7 +28,7 @@ class GridView
  */
         render() 
         {
-            let currencyArray=this.stompService.currencyArray
+            let currencyArray=this.stompService.currencyArray;
             let str=" <tr><th>Name</th><th>Current Best Bid Price</th><th>Current Best Ask Price</th><th>Best Bid Last Changed</th><th>Best Ask Last Changed</th><th>Mid Price</th></tr>";
             for (let i = currencyArray.length-1; i >=0 ; i--) 
             {

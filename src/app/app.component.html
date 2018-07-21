@@ -1,0 +1,14 @@
+
+<div class="containerCls">
+  <div>
+    <h3 class="homeCls titleCls">My Weather</h3>
+    <span class="homeCls fa fa-home"></span>
+    <span class="homeCls fa fa-info-circle"></span>
+  </div>
+  <div class="objContainer">
+    <app-weather-object *ngFor="let city of cityArr" [obj]="city"></app-weather-object>
+
+      
+  </div>
+  
+</div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherServiceService } from './weather-service.service';
+import { SessionServiceService } from './session-service.service';
 import { Observable } from 'rxjs';
 @Component({
   selector: 'app-root',
@@ -9,18 +10,30 @@ import { Observable } from 'rxjs';
 export class AppComponent implements OnInit {
  
   cityArr=[];
-  constructor(private weatherServiceService:WeatherServiceService){
+  newCity="";
+  errorCity=false;
+  constructor(private weatherServiceService:WeatherServiceService, private sessionServiceService:SessionServiceService){
 
   }
 
   ngOnInit() {
-  this.addCity();  
+    console.log("oninit");
+    this.cityArr = this.sessionServiceService.getAllCities();
+//  this.addCity();  
   }
 
   addCity(){
-    this.weatherServiceService.getCity('Pune').subscribe(
-      data => {this.cityArr.push(data) },
-      err => {console.error(err)}
+   
+    this.weatherServiceService.getCity(this.newCity).subscribe(
+      data => {
+        this.cityArr.push(data); 
+        this.sessionServiceService.setAllCities(this.cityArr);
+        this.newCity = ""; 
+      },
+      err => {
+        this.errorCity=true;
+        setTimeout(() => {this.newCity = ""; this.errorCity=false;},2000);
+      }
      );
   }
 }

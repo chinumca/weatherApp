@@ -3,5 +3,10 @@
   <div class="rowCls"><span class='headCls'>City:</span> {{obj.name}}</div>
   <div class="rowCls"><span class='headCls'>Current Temp:</span> {{obj.main.temp}}</div>
   <div class="rowCls"><span class='headCls'>Details:</span> {{obj.weather[0].description}}</div>
-  <img class="imgCls" src="assets/images/sunny.png"/>
+  <img class="imgCls" [src]="srcImage"/>
+  <div style="position: absolute;bottom: 0px;width: 100%;">
+    <span class="iconsCls fa fa-info"></span>
+    <span class="iconsCls fa fa-refresh"></span>
+    <span class="iconsCls fa fa-trash"></span>
+  </div>
 </div>

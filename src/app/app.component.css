@@ -32,3 +32,15 @@
 {
     margin-top: 50px;
 }
+.headerRight{
+    float: right;
+    margin-right: 10px;
+}
+.errorCls{
+    background-color: #da9b9b;
+    padding: 5px;
+    color: red;
+    font-size: 20px;
+    border: 2px solid red;
+    border-radius: 5px;
+}

@@ -7,9 +7,11 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class WeatherObjectComponent implements OnInit {
  @Input('obj') obj;
+ srcImage="";
   constructor() { }
 
   ngOnInit() {
+  this.srcImage="http://openweathermap.org/img/w/"+this.obj.weather[0].icon+".png";
   }
 
 }

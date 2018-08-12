@@ -1,0 +1,9 @@
+<div class="headerRight">
+  <input type="text" [(ngModel)]="newCity">
+  <input type="button" value="Add City" (click)="addCity()">
+  <span class="iconsCls fa fa-refresh" (click)="refreshAllCities()"></span>
+  <span class="iconsCls fa fa-trash" (click)="removeAllCities()"></span>
+</div>
+<span *ngIf="errorCity" class="errorCls">Information for <b>{{newCity}}</b> is not available. Please check again !!!</span>
+    <app-weather-object *ngFor="let city of cityArr" [obj]="city" 
+    (cityRemoveEvent)="removeCity($event,obj)" (cityRefreshEvent)="refreshCity($event,obj)"></app-weather-object>

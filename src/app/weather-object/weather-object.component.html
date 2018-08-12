@@ -1,12 +1,16 @@
-<div class="weatherObjCls" style="background-color:#b147cc;">
+
+<div class="weatherObjCls" appThumbHover style="background-color:#b147cc;">
+  <div *ngIf="refresh" class="fa fa-refresh" style="font-size:30px;"></div>
+  <div *ngIf="!refresh" >
   <h4 class="title">Weather Report</h4>
   <div class="rowCls"><span class='headCls'>City:</span> {{obj.name}}</div>
-  <div class="rowCls"><span class='headCls'>Current Temp:</span> {{obj.main.temp}}</div>
+  <div class="rowCls"><span class='headCls'>Current Temp:</span> {{obj.main.temp | celsius}}</div>
   <div class="rowCls"><span class='headCls'>Details:</span> {{obj.weather[0].description}}</div>
   <img class="imgCls" [src]="srcImage"/>
   <div style="position: absolute;bottom: 0px;width: 100%;">
     <span class="iconsCls fa fa-info"></span>
-    <span class="iconsCls fa fa-refresh"></span>
-    <span class="iconsCls fa fa-trash"></span>
+    <span class="iconsCls fa fa-refresh" (click)="refreshCity()"></span>
+    <span class="iconsCls fa fa-trash" (click)="removeCity()"></span>
   </div>
+</div>
 </div>

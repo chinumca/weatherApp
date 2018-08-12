@@ -2,18 +2,15 @@
 <div class="containerCls">
   <div class="headerLeft">
     <h3 class="homeCls titleCls">My Weather</h3>
-    <span class="homeCls fa fa-home"></span>
-    <span class="homeCls fa fa-info-circle"></span>
+    <span class="homeCls fa fa-home" routerLink="/home"></span>
+    <span class="homeCls fa fa-info-circle" routerLink="/aboutUs"></span>
   </div>
-  <div class="headerRight">
-    <input type="text" [(ngModel)]="newCity">
-    <input type="button" value="Add City" (click)="addCity()">
-  </div>
-  <div class="objContainer">
-    <span *ngIf="errorCity" class="errorCls">Information for <b>{{newCity}}</b> is not available. Please check again !!!</span>
-    <app-weather-object *ngFor="let city of cityArr" [obj]="city"></app-weather-object>
+  
 
-      
+
+  <div class="objContainer">
+    
+    <router-outlet></router-outlet>
   </div>
   
 </div>

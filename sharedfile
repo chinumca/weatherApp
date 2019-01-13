@@ -68,3 +68,84 @@
     border: 2px solid red;
     border-radius: 5px;
 }
+
+/*weatherTile css*/
+.weatherObjCls{
+    height: 200px;
+    width: 200px;
+    border: 2px solid;
+    border-radius: 3px;
+    position: relative;
+    float: left;
+    margin: 5px;
+    padding: 5px;
+}
+.title{
+    /*text-align: center;*/
+    font-style: oblique;
+    font-weight: bold;
+    color: #3322c3;
+    position: relative;
+    z-index: 1;
+}
+.headCls{
+    font-style: oblique;
+    font-weight: bold;
+    
+}
+.imgCls{
+    position: relative;
+    top: 0px;
+    right: 0px;
+   
+}
+.rowCls{
+    margin-top: 3px;
+    position: relative;
+    z-index:2 ;
+}
+
+.iconsCls{
+    position: relative;
+    float: right;
+
+}
+.fa{
+    padding: 2px;
+    cursor: pointer;
+    color: black;
+    border: 1px solid;
+    border-radius: 4px;
+    margin-left: 5px;
+    font-size: 20px;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    background:#757481;
+    
+}
+
+
+.card-cls{
+    
+    background-image: radial-gradient(#464141, #2b2929);
+    border-radius: 8px;
+    width:200px;
+    height: 200px;
+    float: left;
+    position: relative;
+    margin: 5px;
+    color: aliceblue;
+        
+}
+.card-cls header{
+    margin: 10px;
+}
+.card-cls .body{
+    margin: 10px;
+}
+.card-cls footer{
+    margin: 10px;
+    bottom: 0px;
+    position: absolute;
+}

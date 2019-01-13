@@ -1,0 +1,70 @@
+<!--app component-->
+<div class="container">
+<div class="containerCls jumbotron">
+  <h3 class="homeCls titleCls">Weather Application</h3>
+  
+  <nav class="navbar navbar-default">
+      <div class="container-fluid">        
+          <ul class="nav navbar-nav">
+              <li class="active"><a href="#" >Home</a></li>
+              <li><a href="#" >About Us</a></li>
+          </ul>
+      </div>
+    </nav>
+
+  <div class="objContainer container">
+    
+   
+  </div>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">    
+        All rights reserved.
+    </div>
+  </nav>
+</div>
+</div>
+
+/* app component css*/
+
+.titleCls{
+    margin-left:10px; 
+    
+    margin-top: 5px;
+}
+.fa{
+    padding: 2px;
+    cursor: pointer;
+    margin-left: 15px;
+    border: 1px solid; 
+    border-radius: 3px;
+    font-size: 25px;
+}
+.fa:hover{
+    color: mediumblue;
+}
+.containerCls{
+    /*border: 2px solid;
+    height: 45px;
+    padding-top: 5px;
+    border-radius: 2px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;*/
+    margin-top: 15px;
+}
+.objContainer
+{
+    
+}
+.headerRight{
+    float: right;
+    margin-right: 10px;
+}
+.errorCls{
+    background-color: #da9b9b;
+    padding: 5px;
+    color: red;
+    font-size: 20px;
+    border: 2px solid red;
+    border-radius: 5px;
+}

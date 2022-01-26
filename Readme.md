@@ -3,7 +3,7 @@ Assignment: DB Updating Table Dev Challenge
 
 This module contains a development challenge submitted by Sachin Patil.
 
-To view it, run
+To view it, run 
 
 ```
 npm install
